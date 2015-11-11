@@ -1,7 +1,7 @@
 require 'oauth2'
 require 'base64'
 module Linkshare
-  class LinkshareStrategy < OAuth2::Strategy::Base
+  class Strategy < OAuth2::Strategy::Base
     # Not used for this strategy
     #
     # @raise [NotImplementedError]
