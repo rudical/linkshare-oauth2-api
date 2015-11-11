@@ -4,16 +4,18 @@ require 'json'
 require 'linkshare/strategy'
 require 'linkshare/coupon'
 require 'linkshare/link_locator'
+require 'linkshare/advanced_reports'
 module Linkshare
   API_URIS = {
     coupon: "https://api.rakutenmarketing.com/coupon/1.0",
-    link_locator: "https://api.rakutenmarketing.com/linklocator/1.0"
+    link_locator: "https://api.rakutenmarketing.com/linklocator/1.0",
+    advanced_reports: "https://api.rakutenmarketing.com/advancedreports/1.0"
   }
   SITE = "https://api.rakutenmarketing.com/"
   TOKEN_URL = "token/"
 
   class << self
-    attr_accessor :consumer_key, :consumer_secret, :sid, :username, :password
+    attr_accessor :consumer_key, :consumer_secret, :sid, :username, :password, :security_token
   end
 
   def self.token
@@ -25,7 +27,11 @@ module Linkshare
   end
 
   def self.linkLocator
-    @coupon ||= Linkshare::LinkLocator.new
+    @linklocator ||= Linkshare::LinkLocator.new
+  end
+
+  def self.advancedreports
+    @advancedreports ||= Linkshare::AdvancedReports.new
   end
 
   protected
