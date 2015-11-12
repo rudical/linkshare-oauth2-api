@@ -1,6 +1,7 @@
 require 'oauth2'
 require 'base64'
 require 'json'
+require 'linkshare/request'
 require 'linkshare/strategy'
 require 'linkshare/coupon'
 require 'linkshare/link_locator'
