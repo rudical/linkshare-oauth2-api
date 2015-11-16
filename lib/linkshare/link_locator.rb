@@ -1,5 +1,15 @@
 module Linkshare
   class LinkLocator
+    STATUS = {
+      :approved => "approved",
+      :wait => "wait",
+      :approval_extended => "approval extended", 
+      :temp_removed => "temp removed", 
+      :temp_rejected => "temp rejected", 
+      :perm_removed => "perm removed", 
+      :perm_rejected => "perm rejected", 
+      :self_removed => "self removed"
+    }
   	def getMerchByID(mid)
   		l = Linkshare::Response.parse(Linkshare::Request.get(Linkshare::API_URIS[:link_locator]+'/getMerchByID/'+mid.to_s))
       l['getMerchByIDResponse']['return']
@@ -15,8 +25,8 @@ module Linkshare
       l['getMerchByCategoryResponse']['return']
   	end
 
-  	def getMerchByAppStatus(statusID = "approved")
-      l = l = Linkshare::Response.parse(Linkshare::Request.get(Linkshare::API_URIS[:link_locator]+'/getMerchByAppStatus/'+statusID.to_s))
+  	def getMerchByAppStatus(statusID = STATUS[:approved])
+      l = l = Linkshare::Response.parse(Linkshare::Request.get(Linkshare::API_URIS[:link_locator]+'/getMerchByAppStatus/' + STATUS[statusID]))
       l['getMerchByAppStatusResponse']['return']
   	end
 
@@ -39,5 +49,7 @@ module Linkshare
   		l = Linkshare::Response.parse(Linkshare::Request.get(Linkshare::API_URIS[:link_locator]+'/getTextLinks/'+mid.to_s+'/'+creativeCategory.to_s+'/'+startDate+'/'+endDate+'/-1/'+page.to_s))
       l['getTextLinksResponse']['return']
   	end
+
+
   end
 end
