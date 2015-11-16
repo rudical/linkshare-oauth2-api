@@ -14,7 +14,7 @@ module Linkshare
       unless mid == ''
         params.merge({ 'mid' => mid})
       end
-  		Linkshare::Request.get(Linkshare::API_URIS[:advanced_reports], :params => params)
+  		Linkshare::Request.get(Linkshare::API_URIS[:advanced_reports], :params => params).body
   	end
   end
 end

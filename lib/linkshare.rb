@@ -2,6 +2,7 @@ require 'oauth2'
 require 'base64'
 require 'json'
 require 'linkshare/request'
+require 'linkshare/response'
 require 'linkshare/strategy'
 require 'linkshare/coupon'
 require 'linkshare/link_locator'
@@ -27,7 +28,7 @@ module Linkshare
     @coupon ||= Linkshare::Coupon.new
   end
 
-  def self.linkLocator
+  def self.linklocator
     @linklocator ||= Linkshare::LinkLocator.new
   end
 

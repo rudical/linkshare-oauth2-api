@@ -12,8 +12,9 @@ module Linkshare
   		Linkshare::Request.get(Linkshare::API_URIS[:link_locator]+'/getMerchByCategory/'+cat.to_s)
   	end
 
-  	def getMerchByAppStatus(statusID)
-  		Linkshare::Request.get(Linkshare::API_URIS[:link_locator]+'/getMerchByAppStatus/'+statusID.to_s)
+  	def getMerchByAppStatus(statusID = "approved")
+  		a = Linkshare::Request.get(Linkshare::API_URIS[:link_locator]+'/getMerchByAppStatus/'+statusID.to_s)
+      ap a
   	end
 
   	def getProductLinks(mid, creativeCategory = '0', page = '1')

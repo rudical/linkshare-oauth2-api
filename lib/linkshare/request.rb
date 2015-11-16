@@ -5,7 +5,7 @@ module Linkshare
   	end
 
   	def self.post (url, params = nil)
-  		Linkshare.token.post(url)
+  		Linkshare.token.post(url, params)
   	end
 
   end

@@ -23,7 +23,13 @@ module Linkshare
                 'scope' => sid
               }.merge(client_params).merge(params)
 
-      params.merge!('client_params' => {:headers => {'Authorization' => authorization(client_params['client_id'], client_params['client_secret'])}})
+      params.merge!('client_params' => {
+        :headers => {
+          'Authorization' => authorization(client_params['client_id'], client_params['client_secret']),
+          'Accept' => 'application/xml'}
+        })
+
+      # params.merge(:parse => :xml)
       @client.get_token(params, opts)
     end
 
