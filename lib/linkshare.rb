@@ -8,12 +8,14 @@ require 'linkshare/coupon'
 require 'linkshare/link_locator'
 require 'linkshare/advanced_reports'
 require 'linkshare/product_search'
+require 'linkshare/events'
 module Linkshare
   API_URIS = {
     coupon: "https://api.rakutenmarketing.com/coupon/1.0",
     link_locator: "https://api.rakutenmarketing.com/linklocator/1.0",
     advanced_reports: "https://api.rakutenmarketing.com/advancedreports/1.0",
-    product_search: "https://api.rakutenmarketing.com/productsearch/1.0"
+    product_search: "https://api.rakutenmarketing.com/productsearch/1.0",
+    events: "https://api.rakutenmarketing.com/events/1.0/transactions"
   }
   SITE = "https://api.rakutenmarketing.com/"
   TOKEN_URL = "token/"
@@ -40,6 +42,10 @@ module Linkshare
 
   def self.advancedreports
     @advancedreports ||= Linkshare::AdvancedReports.new
+  end
+
+  def self.events
+    @events ||= Linkshare::Events.new
   end
 
   protected
