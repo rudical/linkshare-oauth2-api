@@ -87,7 +87,3 @@ Then add the following code to an initializer:
   advertiser = Linkshare.advertisersearch.getAdvertisers ("Example Store")
 
 
-
-## License
-Copyright (c) 2015 Rudie Shahinian. See {LICENSE}[MIT-LICENSE] for
-details.
