@@ -2,14 +2,7 @@ require 'oauth2'
 require 'base64'
 module Linkshare
   class Strategy < OAuth2::Strategy::Base
-    # Not used for this strategy
-    #
-    # @raise [NotImplementedError]
-    def authorize_url
-      fail(NotImplementedError, 'The authorization endpoint is not used in this strategy')
-    end
-
-    # Retrieve an access token given the specified End User username and password.
+    # Retrieve an access token given the specified End User username, password and Linkshare AccountID.
     #
     # @param [String] username the End User username
     # @param [String] password the End User password

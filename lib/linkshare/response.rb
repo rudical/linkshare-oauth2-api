@@ -1,5 +1,3 @@
-require "recursive_open_struct"
-
 module Linkshare
   class Response
     def self.parse(raw_data)
