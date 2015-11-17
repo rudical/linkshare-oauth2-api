@@ -5,11 +5,11 @@ require "linkshare/version"
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
-  s.name        = "linkshare"
+  s.name        = "linkshare-oauth2-api"
   s.version     = Linkshare::VERSION
   s.authors     = ["Rudie Shahinian"]
   s.email       = ["rudie@neovision.ca"]
-  s.homepage    = ""
+  s.homepage    = "https://github.com/rudical/linkshare-oauth2-api"
   s.summary     = "Provides Rakutan Linkshare OAuth2 API's."
   s.description = "Provides Rakuten Linkshare OAuth2 API's for Coupons, Link Locator, 
                   Products Search, Advanced Reports, Advertiser search, and Events."
