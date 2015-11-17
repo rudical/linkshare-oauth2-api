@@ -1,19 +1,18 @@
 = Linkshare
 
 A Ruby implementation of the Rakutan Linkshare API's. This gem provides access to the following APIs:
-* [Advanced Reports - 1.0](https://developers.rakutenmarketing.com/subscribe/apis/info?name=AdvancedReports&version=1.0&provider=LinkShare)
-* [Coupons - 1.0](https://developers.rakutenmarketing.com/subscribe/apis/info?name=Coupon&version=1.0&provider=LinkShare)
-* [Link Locator - 1.0](https://developers.rakutenmarketing.com/subscribe/apis/info?name=LinkLocator&version=1.0&provider=LinkShare)
-* [Product Search - 1.0](https://developers.rakutenmarketing.com/subscribe/apis/info?name=ProductSearch&version=1.0&provider=LinkShare)
-* [Advertiser Search - 1.0](https://developers.rakutenmarketing.com/subscribe/apis/info?name=AdvertiserSearch&version=1.0&provider=LinkShare)
-* [Events - 1.0](https://developers.rakutenmarketing.com/subscribe/apis/info?name=Events&version=1.0&provider=LinkShare)
+* {Advanced Reports - 1.0}[https://developers.rakutenmarketing.com/subscribe/apis/info?name=AdvancedReports&version=1.0&provider=LinkShare]
+* {Coupons - 1.0}[https://developers.rakutenmarketing.com/subscribe/apis/info?name=Coupon&version=1.0&provider=LinkShare]
+* {Link Locator - 1.0}[https://developers.rakutenmarketing.com/subscribe/apis/info?name=LinkLocator&version=1.0&provider=LinkShare]
+* {Product Search - 1.0}[https://developers.rakutenmarketing.com/subscribe/apis/info?name=ProductSearch&version=1.0&provider=LinkShare]
+* {Advertiser Search - 1.0}[https://developers.rakutenmarketing.com/subscribe/apis/info?name=AdvertiserSearch&version=1.0&provider=LinkShare]
+* {Events - 1.0}[https://developers.rakutenmarketing.com/subscribe/apis/info?name=Events&version=1.0&provider=LinkShare]
 
 
 ## Before You Begin
 
-You will require an account with Linkshare, subscriptions to the API's and OAuth2 credentials which can be obtained by followng the instructions in the [Aquiring your Access Token][accesstoken] document
+You will require an account with Linkshare, subscriptions to the API's and OAuth2 credentials which can be obtained by followng the instructions in the {Aquiring your Access Token}[https://developers.rakutenmarketing.com/console/registry/resource/_system/governance/apimgt/applicationdata/provider/RakutenMarketing/artifacts/API_Developer_Portal-Acquiring_Your_Access_Token_Guide.pdf] document
 
-[accesstoken]: https://developers.rakutenmarketing.com/console/registry/resource/_system/governance/apimgt/applicationdata/provider/RakutenMarketing/artifacts/API_Developer_Portal-Acquiring_Your_Access_Token_Guide.pdf
 
 You will need the following peices of information:
 * AccountID (SID or MID)
@@ -27,68 +26,68 @@ You will need the following peices of information:
 
 To install **linkshare**, run the following command:
 
-```
+
   gem install linkshare-ouath2-api
-```
+
 
 Or if you are using **bundler**, add 
 
-```
+
   gem 'linkshare-ouath2-api'
-```
+
 
 to your `Gemfile`, and run `bundle install`
 
 Then add the following code to an initializer:
-```
-	require 'linkshare'
-	Linkshare.consumer_key = "#########################"
-	Linkshare.consumer_secret = "#########################"
-	Linkshare.sid = "1234567"
-	Linkshare.username = "username"
-	Linkshare.password = "password"
-	Linkshare.security_token = "##################################################################"
-```
+
+  require 'linkshare'
+  Linkshare.consumer_key = "#########################"
+  Linkshare.consumer_secret = "#########################"
+  Linkshare.sid = "1234567"
+  Linkshare.username = "username"
+  Linkshare.password = "password"
+  Linkshare.security_token = "#############################################"
+
 
 ## Usage Examples
 
-```ruby
-	require 'linkshare'
 
-	# Coupons API
-	coupn = Linkshare.coupon
-	coupn.fetch
-	coupn.getCoupons
+  require 'linkshare'
 
-	...
+  # Coupons API
+  coupn = Linkshare.coupon
+  coupn.fetch
+  coupn.getCoupons
 
-	# Link Locator API
-	merchants = Linkshare.linklocator.getMerchByAppStatus(:approved) 
+  ...
 
-	...
-	
-	# Advanced Reports API
-	report = Linkshare.advancedreports.fetchReports(6, '20150101', '20160101')
+  # Link Locator API
+  merchants = Linkshare.linklocator.getMerchByAppStatus(:approved) 
 
-	...
+  ...
 
-	# Product Search API
-	products = Linkshare.productsearch
-	products.addKeyword('Toy','keyword')
-	products.getProducts
+  # Advanced Reports API
+  report = Linkshare.advancedreports.fetchReports(6, '20150101', '20160101')
 
-	...
+  ...
 
-	# Events API
-	events = Linkshare.events.getEvents
+  # Product Search API
+  products = Linkshare.productsearch
+  products.addKeyword('Toy','keyword')
+  products.getProducts
 
-	...
+  ...
 
-	# Advertiser Search API
-	advertiser = Linkshare.advertisersearch.getAdvertisers ("Example Store")
-```
+  # Events API
+  events = Linkshare.events.getEvents
+
+  ...
+
+  # Advertiser Search API
+  advertiser = Linkshare.advertisersearch.getAdvertisers ("Example Store")
+
 
 
 ## License
-Copyright (c) 2015 Rudie Shahinian. See [LICENSE](LICENSE.md) for
+Copyright (c) 2015 Rudie Shahinian. See {LICENSE}[MIT-LICENSE] for
 details.
