@@ -1,19 +1,13 @@
 = Linkshare
 
 A Ruby implementation of the Rakutan Linkshare API's. This gem provides access to the following APIs:
-* [Advanced Reports - 1.0][advancedreport]
-* [Coupons - 1.0][coupons]
-* [Link Locator - 1.0][linklocator]
-* [Product Search - 1.0][productsearch]
-* [Advertiser Search - 1.0][advertisersearch]
-* [Events - 1.0][events]
+* [Advanced Reports - 1.0](https://developers.rakutenmarketing.com/subscribe/apis/info?name=AdvancedReports&version=1.0&provider=LinkShare)
+* [Coupons - 1.0](https://developers.rakutenmarketing.com/subscribe/apis/info?name=Coupon&version=1.0&provider=LinkShare)
+* [Link Locator - 1.0](https://developers.rakutenmarketing.com/subscribe/apis/info?name=LinkLocator&version=1.0&provider=LinkShare)
+* [Product Search - 1.0](https://developers.rakutenmarketing.com/subscribe/apis/info?name=ProductSearch&version=1.0&provider=LinkShare)
+* [Advertiser Search - 1.0](https://developers.rakutenmarketing.com/subscribe/apis/info?name=AdvertiserSearch&version=1.0&provider=LinkShare)
+* [Events - 1.0](https://developers.rakutenmarketing.com/subscribe/apis/info?name=Events&version=1.0&provider=LinkShare)
 
-[advancedreport]: https://developers.rakutenmarketing.com/subscribe/apis/info?name=AdvancedReports&version=1.0&provider=LinkShare
-[coupons]: https://developers.rakutenmarketing.com/subscribe/apis/info?name=Coupon&version=1.0&provider=LinkShare
-[linklocator]: https://developers.rakutenmarketing.com/subscribe/apis/info?name=LinkLocator&version=1.0&provider=LinkShare
-[prsoductsearch]: https://developers.rakutenmarketing.com/subscribe/apis/info?name=ProductSearch&version=1.0&provider=LinkShare
-[advancedsearch]: https://developers.rakutenmarketing.com/subscribe/apis/info?name=AdvertiserSearch&version=1.0&provider=LinkShare
-[event]: https://developers.rakutenmarketing.com/subscribe/apis/info?name=Events&version=1.0&provider=LinkShare
 
 ## Before You Begin
 
@@ -34,13 +28,13 @@ You will need the following peices of information:
 To install **linkshare**, run the following command:
 
 ```
-  gem install linkshare
+  gem install linkshare-ouath2-api
 ```
 
 Or if you are using **bundler**, add 
 
 ```
-  gem 'linkshare'
+  gem 'linkshare-ouath2-api'
 ```
 
 to your `Gemfile`, and run `bundle install`
@@ -96,7 +90,5 @@ Then add the following code to an initializer:
 
 
 ## License
-Copyright (c) 2015 Rudie Shahinian. See [LICENSE][] for
+Copyright (c) 2015 Rudie Shahinian. See [LICENSE](LICENSE.md) for
 details.
-
-[license]: LICENSE.md
