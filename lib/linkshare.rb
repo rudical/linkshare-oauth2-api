@@ -7,6 +7,7 @@ require 'linkshare/strategy'
 require 'linkshare/coupon'
 require 'linkshare/link_locator'
 require 'linkshare/advanced_reports'
+require 'linkshare/custom_reports'
 require 'linkshare/product_search'
 require 'linkshare/events'
 require 'linkshare/advertiser_search'
@@ -15,6 +16,7 @@ module Linkshare
     coupon: "https://api.rakutenmarketing.com/coupon/1.0",
     link_locator: "https://api.rakutenmarketing.com/linklocator/1.0",
     advanced_reports: "https://api.rakutenmarketing.com/advancedreports/1.0",
+    custom_reports: "https://ran-reporting.rakutenmarketing.com/en/reports",
     product_search: "https://api.rakutenmarketing.com/productsearch/1.0",
     events: "https://api.rakutenmarketing.com/events/1.0/transactions",
     advertiser_search: "https://api.rakutenmarketing.com/advertisersearch/1.0"
@@ -23,7 +25,7 @@ module Linkshare
   TOKEN_URL = "token/"
 
   class << self
-    attr_accessor :consumer_key, :consumer_secret, :sid, :username, :password, :security_token
+    attr_accessor :consumer_key, :consumer_secret, :sid, :username, :password, :security_token, :custom_report_token
   end
 
   def self.token
@@ -44,6 +46,10 @@ module Linkshare
 
   def self.advancedreports
     @advancedreports ||= Linkshare::AdvancedReports.new
+  end
+
+  def self.customreports
+    @customreports ||= Linkshare::CustomReports.new
   end
 
   def self.advertisersearch
