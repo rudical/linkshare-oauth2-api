@@ -47,6 +47,7 @@ Then add the following code to an initializer:
   Linkshare.username = "username"
   Linkshare.password = "password"
   Linkshare.security_token = "#############################################"
+  Linkshare.custom_report_token = "##################################################################################"
 
 
 ## Usage Examples
@@ -68,6 +69,11 @@ Then add the following code to an initializer:
 
   # Advanced Reports API
   report = Linkshare.advancedreports.fetchReports(6, '20150101', '20160101')
+
+  ...
+
+  # Custom Reports API
+  report = Linkshare.customreports.fetchReports('custom-report-name', '2016-01-27', '2016-01-27', 5)
 
   ...
 
