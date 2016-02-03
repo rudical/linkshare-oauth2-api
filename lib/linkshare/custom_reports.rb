@@ -19,7 +19,7 @@ module Linkshare
       @reportsRows = []
       @reportsCSV = open(url).read()
       reportsrows = @reportsCSV.force_encoding("UTF-8").gsub("\"",'').split(/\n/)
-      if reportsrows[1].match(/^\{code\:.*\}$/)
+      if !reportsrows[1].nil? && reportsrows[1].match(/^\{code\:.*\}$/)
         raise 'Linkshare Error (custom report): ' + reportsrows[1]
       end
       @cols = reportsrows[0].split(/,/)
