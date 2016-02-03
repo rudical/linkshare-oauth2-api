@@ -27,13 +27,13 @@ You will need the following peices of information:
 To install **linkshare**, run the following command:
 
 
-  gem install linkshare-ouath2-api
+  gem install linkshare-oauth2-api
 
 
 Or if you are using **bundler**, add 
 
 
-  gem 'linkshare-ouath2-api'
+  gem 'linkshare-oauth2-api'
 
 
 to your `Gemfile`, and run `bundle install`
