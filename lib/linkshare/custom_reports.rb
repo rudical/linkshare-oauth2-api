@@ -1,4 +1,5 @@
 require "open-uri"
+require 'csv'
 module Linkshare
   class CustomReports
     def initilize()
@@ -6,9 +7,7 @@ module Linkshare
       @reportsRows = []
       @cols = []
     end
-    def getCSV
-      @reportsCSV
-    end
+
 
     def getReports
       @reportsRows
@@ -17,21 +16,22 @@ module Linkshare
       token = Linkshare.custom_report_token
       url = Linkshare::API_URIS[:custom_reports]+'/'+reportname+'/filters?start_date='+bdate+'&end_date='+edate+'&include_summary='+include_summary+'&network='+network.to_s+'&tz='+tz+'&date_type='+date_type+'&token='+token
       @reportsRows = []
-      @reportsCSV = open(url).read()
-      reportsrows = @reportsCSV.force_encoding("UTF-8").gsub("\"",'').split(/\n/)
-      if !reportsrows[1].nil? && reportsrows[1].match(/^\{code\:.*\}$/)
-        raise 'Linkshare Error (custom report): ' + reportsrows[1]
-      end
-      @cols = reportsrows[0].split(/,/)
-      reportsrows.shift
-      reportsrows.each { |row|
-        r = {}
-        split_row = row.split(/,/)
-        @cols.each_with_index { | o, i|
-          r[@cols[i]]=split_row[i]
-        }
-        @reportsRows.push(r)
-      }
+
+      filename = "linkshare_custom_report_#{reportname}_#{bdate}_#{edate}"
+
+      path = "#{Rails.root.join('tmp')}/#{filename}.csv"
+      file = Tempfile.new(["#{filename}", '.csv']) 
+      file.binmode
+      file << open(url).read
+      file.close
+
+      CSV.open(path, 'w', headers: :first_row, col_sep: ',', row_sep: "\n", encoding: 'utf-8') do |csv|
+          CSV.open(file.path, 'r:bom|utf-8', headers: :first_row, col_sep: ',', quote_char: "\"", row_sep: "\n").each_with_index do |line, index| 
+            @reportsRows.push(line)
+
+          end
+      end 
+
       @reportsRows
   	end
   end
