@@ -19,19 +19,16 @@ module Linkshare
 
       filename = "linkshare_custom_report_#{reportname}_#{bdate}_#{edate}"
 
-      path = "#{Rails.root.join('tmp')}/#{filename}.csv"
+      # path = "#{Rails.root.join('tmp')}/#{filename}.csv"
       file = Tempfile.new(["#{filename}", '.csv']) 
       file.binmode
       file << open(url).read
       file.close
-
-      CSV.open(path, 'w', headers: :first_row, col_sep: ',', row_sep: "\n", encoding: 'utf-8') do |csv|
-          CSV.open(file.path, 'r:bom|utf-8', headers: :first_row, col_sep: ',', quote_char: "\"", row_sep: "\n").each_with_index do |line, index| 
+      # CSV.open(path, 'w', headers: :first_row, col_sep: ',', row_sep: "\n", encoding: 'utf-8') do |csv|
+          CSV.open(file.path, 'r:bom|utf-8', headers: :first_row, col_sep: ',', quote_char: "\"", row_sep: "\r\n").each_with_index do |line, index| 
             @reportsRows.push(line)
-
           end
-      end 
-
+      # end 
       @reportsRows
   	end
   end
